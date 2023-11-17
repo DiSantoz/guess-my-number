@@ -23,16 +23,21 @@ document.querySelector(".check").addEventListener("click", function () {
   if (!guess) {
     message.textContent = "Please guess a number!";
     message.style.color = "red";
+    // win game
   } else if (guess === secretNumber) {
-    message.textContent = "Winner, winner!";
-    message.style.color = "green";
+    message.textContent = "Winner, winner!!!";
+    message.style.color = "yellow";
     document.querySelector(".number").textContent = secretNumber;
+    document.querySelector("body").style.backgroundColor = "green";
+    document.querySelector(".number").style.width = "30rem";
+    // guess too high
   } else if (guess > secretNumber && userScore > 1) {
     message.textContent = "A bit too high of a guess";
     message.style = "";
     // decrease score by 1
     userScore--;
     scoreDisplay.textContent = userScore;
+    // guess too low
   } else if (guess < secretNumber && userScore > 1) {
     message.textContent = "You guessed too low";
     message.style = "";
