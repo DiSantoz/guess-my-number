@@ -1,7 +1,6 @@
 "use strict";
 // random number 1 - 20, add + 1 to get 20
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-console.log(secretNumber);
 
 // message
 const message = document.querySelector(".message");
@@ -19,8 +18,6 @@ let highScore = 0;
 document.querySelector(".check").addEventListener("click", function () {
   // convert string value to number
   const guess = Number(document.querySelector(".guess").value);
-
-  console.log(typeof guess, guess);
 
   //   if no number selected, display message
   if (!guess) {
@@ -65,7 +62,6 @@ document.querySelector(".again").addEventListener("click", function () {
   //   location.reload();
   userScore = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  console.log("New number is:", secretNumber);
   message.textContent = "Start guessing...";
   message.style = "";
   document.querySelector(".number").textContent = "?";
