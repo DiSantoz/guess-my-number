@@ -33,6 +33,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").textContent = secretNumber;
     document.querySelector("body").style.backgroundColor = "green";
     document.querySelector(".number").style.width = "30rem";
+    document.querySelector(".guess").disabled = true;
 
     // high score implementation
     if (userScore > highScore) {
@@ -49,10 +50,13 @@ document.querySelector(".check").addEventListener("click", function () {
     // decrease score by 1
     userScore--;
     scoreDisplay.textContent = userScore;
-  } else {
-    message.textContent = "GAME OVER";
-    message.style.color = "red";
-    scoreDisplay.textContent = 0;
+    if (userScore === 0) {
+      message.textContent = "GAME OVER";
+      message.style.color = "red";
+      document.querySelector(".guess").disabled = true;
+      scoreDisplay.textContent = 0;
+      document.querySelector(".check").style.pointerEvents = "none";
+    }
   }
 });
 
@@ -69,4 +73,5 @@ document.querySelector(".again").addEventListener("click", function () {
   scoreDisplay.textContent = "20";
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".guess").disabled = false;
 });
