@@ -39,16 +39,12 @@ document.querySelector(".check").addEventListener("click", function () {
       highScore = userScore;
       document.querySelector(".highscore").textContent = highScore;
     }
-    // guess too high
-  } else if (guess > secretNumber && userScore > 1) {
-    message.textContent = "A bit too high of a guess";
-    message.style = "";
-    // decrease score by 1
-    userScore--;
-    scoreDisplay.textContent = userScore;
-    // guess too low
-  } else if (guess < secretNumber && userScore > 1) {
-    message.textContent = "You guessed too low";
+    // guess too high or too low
+  } else if (guess !== secretNumber) {
+    message.textContent =
+      guess > secretNumber
+        ? "A bit too high of a guess"
+        : "You guessed too low";
     message.style = "";
     // decrease score by 1
     userScore--;
